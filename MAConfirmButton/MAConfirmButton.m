@@ -6,7 +6,6 @@
 //
 
 #import "MAConfirmButton.h"
-#import "UIColor-Expanded.h"
 
 #define kHeight 26.0
 #define kPadding 20.0
@@ -58,7 +57,7 @@
 
         self.layer.needsDisplayOnBoundsChange = YES;
 
-        CGSize size = [disabled sizeWithFont:[UIFont boldSystemFontOfSize:kFontSize]];
+        CGSize size = [disabled sizeWithAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:kFontSize]}];
         CGRect r = self.frame;
         r.size.height = kHeight;
         r.size.width = size.width+kPadding;
@@ -68,7 +67,7 @@
         [self setTitleColor:[UIColor colorWithWhite:0.6 alpha:1] forState:UIControlStateNormal];
         [self setTitleShadowColor:[UIColor colorWithWhite:1 alpha:1] forState:UIControlStateNormal];		
 
-        self.titleLabel.textAlignment = UITextAlignmentCenter;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.shadowOffset = CGSizeMake(0, 1);
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:kFontSize];
@@ -89,7 +88,7 @@
 
         self.layer.needsDisplayOnBoundsChange = YES;
 
-        CGSize size = [title sizeWithFont:[UIFont boldSystemFontOfSize:kFontSize]];
+        CGSize size = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:kFontSize]}];
         CGRect r = self.frame;
         r.size.height = kHeight;
         r.size.width = size.width+kPadding;
@@ -99,7 +98,7 @@
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];		
         [self setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.5] forState:UIControlStateNormal];
 
-        self.titleLabel.textAlignment = UITextAlignmentCenter;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.shadowOffset = CGSizeMake(0, -1);
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:kFontSize];
@@ -122,13 +121,13 @@
             [self setTitleColor:[UIColor colorWithWhite:0.6 alpha:1] forState:UIControlStateNormal];
             [self setTitleShadowColor:[UIColor colorWithWhite:1 alpha:1] forState:UIControlStateNormal];
             self.titleLabel.shadowOffset = CGSizeMake(0, 1);
-            size = [disabled sizeWithFont:[UIFont boldSystemFontOfSize:kFontSize]];
+            size = [disabled sizeWithAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:kFontSize]}];
         }else if(selected){
             [self setTitle:confirm forState:UIControlStateNormal];		
-            size = [confirm sizeWithFont:[UIFont boldSystemFontOfSize:kFontSize]];
+            size = [confirm sizeWithAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:kFontSize]}];
         }else{
             [self setTitle:title forState:UIControlStateNormal];
-            size = [title sizeWithFont:[UIFont boldSystemFontOfSize:kFontSize]];
+            size = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:kFontSize]}];
         }
 
         size.width += kPadding;
@@ -272,7 +271,17 @@
 }
 
 - (void)setTintColor:(UIColor *)color{
-    self.tint = [UIColor colorWithHue:color.hue saturation:color.saturation+0.15 brightness:color.brightness alpha:1];
+    CGFloat hue = 0.0f, saturation = 0.0f, brightness = 0.0f;
+    CGFloat alpha = 1.0f;
+    
+    BOOL success = [color getHue:&hue saturation:&saturation brightness:&brightness alpha:nil];
+    if (success) {
+        self.tint = [UIColor colorWithHue:hue saturation:saturation+0.15 brightness:brightness alpha:alpha];
+    } else {
+        // Fallback in case getHue:saturation:brightness:alpha: failed
+        self.tint = color;
+    }
+    
     colorLayer.backgroundColor = tint.CGColor;
     [self setNeedsDisplay];
 }
