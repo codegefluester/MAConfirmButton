@@ -17,8 +17,8 @@
 		270FBCD1134BA43800EEA99B /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270FBCD0134BA43800EEA99B /* SampleViewController.m */; };
 		270FBCD4134BA43800EEA99B /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270FBCD2134BA43800EEA99B /* SampleViewController.xib */; };
 		27913F4D134BA46D00FBEB69 /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27913F4A134BA46D00FBEB69 /* MAConfirmButton.m */; };
-		27913F4E134BA46D00FBEB69 /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 27913F4C134BA46D00FBEB69 /* UIColor-Expanded.m */; };
 		27913F51134BA4E700FBEB69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27913F50134BA4E700FBEB69 /* QuartzCore.framework */; };
+		415186751B52CE7900D19EED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 415186741B52CE7900D19EED /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,9 +38,8 @@
 		270FBCD3134BA43800EEA99B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SampleViewController.xib; sourceTree = "<group>"; };
 		27913F49134BA46D00FBEB69 /* MAConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConfirmButton.h; sourceTree = "<group>"; };
 		27913F4A134BA46D00FBEB69 /* MAConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfirmButton.m; sourceTree = "<group>"; };
-		27913F4B134BA46D00FBEB69 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
-		27913F4C134BA46D00FBEB69 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		27913F50134BA4E700FBEB69 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		415186741B52CE7900D19EED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +60,7 @@
 		270FBCAB134BA43800EEA99B = {
 			isa = PBXGroup;
 			children = (
+				415186741B52CE7900D19EED /* Default-568h@2x.png */,
 				27913F48134BA46D00FBEB69 /* MAConfirmButton */,
 				270FBCC0134BA43800EEA99B /* Sample */,
 				270FBCB9134BA43800EEA99B /* Frameworks */,
@@ -117,8 +117,6 @@
 			children = (
 				27913F49134BA46D00FBEB69 /* MAConfirmButton.h */,
 				27913F4A134BA46D00FBEB69 /* MAConfirmButton.m */,
-				27913F4B134BA46D00FBEB69 /* UIColor-Expanded.h */,
-				27913F4C134BA46D00FBEB69 /* UIColor-Expanded.m */,
 			);
 			path = MAConfirmButton;
 			sourceTree = SOURCE_ROOT;
@@ -148,6 +146,9 @@
 /* Begin PBXProject section */
 		270FBCAD134BA43800EEA99B /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
 			buildConfigurationList = 270FBCB0134BA43800EEA99B /* Build configuration list for PBXProject "Sample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -171,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				270FBCC5134BA43800EEA99B /* InfoPlist.strings in Resources */,
+				415186751B52CE7900D19EED /* Default-568h@2x.png in Resources */,
 				270FBCCE134BA43800EEA99B /* MainWindow.xib in Resources */,
 				270FBCD4134BA43800EEA99B /* SampleViewController.xib in Resources */,
 			);
@@ -187,7 +189,6 @@
 				270FBCCB134BA43800EEA99B /* SampleAppDelegate.m in Sources */,
 				270FBCD1134BA43800EEA99B /* SampleViewController.m in Sources */,
 				27913F4D134BA46D00FBEB69 /* MAConfirmButton.m in Sources */,
-				27913F4E134BA46D00FBEB69 /* UIColor-Expanded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +225,6 @@
 		270FBCD5134BA43800EEA99B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -234,6 +234,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -241,7 +242,6 @@
 		270FBCD6134BA43800EEA99B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -261,7 +261,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample/Sample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Sample/Sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,7 +276,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample/Sample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Sample/Sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
